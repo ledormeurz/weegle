@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: weeglea
+  annotations:
+    kubernetes.io/ingress.allow-http: "true"
+spec:
+  tls:
+    - secretName: your-tls-secret
+  backend:
+    serviceName: weeglea
+    servicePort: 8080
