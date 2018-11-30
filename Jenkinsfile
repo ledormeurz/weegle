@@ -1,12 +1,6 @@
 pipeline {
-  agent none
+  agent any
   stages {
-    stage('manger') {
-      steps {
-        sleep 10
-        sh 'ls'
-      }
-    }
     stage('test1') {
       parallel {
         stage('test1') {
