@@ -10,7 +10,7 @@ public class AService {
     public String getHello(){
         return "Bonjour Cedrick comment  vas  tu?" +
                 "je suis malade.\n" +
-                "On va voir le medecin demain du coup";
+                "On va voir le medecin demain du coup. il faut beau aujourd hui";
     }
 
 
