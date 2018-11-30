@@ -8,7 +8,7 @@ public class AService {
 
     @RequestMapping("/gethello")
     public String getHello(){
-        return "Bonjour Cedrick Coriolan";
+        return "Bonjour Cedrick comment  vas  tu?";
     }
 
 }
