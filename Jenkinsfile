@@ -36,4 +36,7 @@ pipeline {
       }
     }
   }
+  environment {
+    qfgqsfs = 'sdfqf'
+  }
 }
