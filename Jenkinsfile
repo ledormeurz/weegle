@@ -1,7 +1,7 @@
 pipeline {
   agent {
     node {
-      label 'build2'
+      label 'build'
     }
 
   }
@@ -11,14 +11,28 @@ pipeline {
         sh 'mvn clean'
       }
     }
-    stage('est') {
-      steps {
-        sleep 1
+    stage('test1') {
+      parallel {
+        stage('test1') {
+          steps {
+            sleep 1
+          }
+        }
+        stage('para1') {
+          steps {
+            sleep 5
+          }
+        }
+        stage('paralelle2') {
+          steps {
+            sleep 10
+          }
+        }
       }
     }
-    stage('test3') {
+    stage('test2') {
       steps {
-        sleep 2
+        sleep 3
       }
     }
   }
