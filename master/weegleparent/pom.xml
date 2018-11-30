@@ -18,7 +18,8 @@
     </properties>
 
     <modules>
-        <module>../weeglea</module>
+        <module>../weegle-a</module>
+        <module>../weegle-b</module>
     </modules>
 
 
