@@ -3,7 +3,8 @@ pipeline {
   stages {
     stage('manger') {
       steps {
-        sh 'mvn clean'
+        sleep 10
+        sh 'ls'
       }
     }
     stage('test1') {
