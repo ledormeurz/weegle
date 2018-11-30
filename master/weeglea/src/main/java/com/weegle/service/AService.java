@@ -9,7 +9,8 @@ public class AService {
     @RequestMapping("/gethello")
     public String getHello(){
         return "Bonjour Cedrick comment  vas  tu?" +
-                "je suis malade.";
+                "je suis malade.\n" +
+                "On va voir le medecin demain du coup";
     }
 
 
