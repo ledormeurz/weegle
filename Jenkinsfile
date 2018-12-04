@@ -1,16 +1,6 @@
 pipeline {
-  agent {
-    node {
-      label 'build'
-    }
-
-  }
+  agent any
   stages {
-    stage('build') {
-      steps {
-        sh 'mvn clean'
-      }
-    }
     stage('test1') {
       parallel {
         stage('test1') {
@@ -35,5 +25,8 @@ pipeline {
         sleep 3
       }
     }
+  }
+  environment {
+    qfgqsfs = 'sdfqf'
   }
 }
