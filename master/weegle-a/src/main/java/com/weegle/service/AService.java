@@ -13,6 +13,9 @@ public class AService {
                 "On va voir le medecin demain du coup. il faut beau aujourd hui";
     }
 
-
+    @RequestMapping("/")
+    public String servicename(){
+        return "Service A";
+    }
 
 }
