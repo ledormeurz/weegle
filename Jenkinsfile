@@ -10,9 +10,11 @@ pipeline {
       steps {
         bat 'dir'
         bat 'cd ./master/weegle-a'
-        dir(path: './master/weegle-a')
-        bat 'dir'
-        bat 'mvn install package'
+        dir(path: './master/weegle-a') {
+          bat 'dir'
+          bat 'mvn clean package'
+        }
+
       }
     }
   }
