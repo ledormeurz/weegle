@@ -8,8 +8,9 @@ pipeline {
     }
     stage('build weegle a') {
       steps {
-        sh '''KUBECONFIG=C:\\Users\\cedco\\.kube
-ls
+        sh '''ls
+KUBECONFIG=C:\\Users\\cedco\\.kube
+
 mvn clean
 ls
 cd ./master/weegle-a
