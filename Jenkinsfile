@@ -9,7 +9,7 @@ pipeline {
     stage('build weegle a') {
       steps {
         sh '''ls
-KUBECONFIG=C:\\Users\\cedco\\.kube
+
 
 '''
       }
