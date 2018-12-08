@@ -9,6 +9,8 @@ pipeline {
     stage('build weegle a') {
       steps {
         bat 'dir'
+        bat 'cd ./master/weegle-a'
+        bat 'mvn install package'
       }
     }
   }
