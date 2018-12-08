@@ -8,8 +8,7 @@ pipeline {
     }
     stage('build weegle a') {
       steps {
-        sh 'echo bonjour'
-        bat 'dir'
+        sh 'ls'
       }
     }
   }
