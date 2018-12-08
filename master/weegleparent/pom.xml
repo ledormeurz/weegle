@@ -121,7 +121,7 @@
                                 <delimiter>@</delimiter>
                             </delimiters>
                             <outputDirectory>
-                                ${basedir}/target/classes
+                                ${basedir}/target
                             </outputDirectory>
                             <filters>
                                 <filter>./target/classes/application.properties</filter>
