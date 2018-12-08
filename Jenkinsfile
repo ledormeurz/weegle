@@ -10,6 +10,7 @@ pipeline {
       steps {
         bat 'dir'
         bat 'cd ./master/weegle-a'
+        bat 'dir'
         bat 'mvn install package'
       }
     }
