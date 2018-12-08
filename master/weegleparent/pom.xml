@@ -20,9 +20,28 @@
     <modules>
         <module>../weegle-a</module>
         <module>../weegle-b</module>
+        <module>../weegle-callb</module>
+        <module>../weegle-common</module>
     </modules>
 
 
+    <profiles>
+        <profile>
+            <id>local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <context.id>local</context.id>
+            </properties>
+        </profile>
+        <profile>
+            <id>deployment</id>
+            <properties>
+                <context.id>deployment</context.id>
+            </properties>
+        </profile>
+    </profiles>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -41,8 +60,86 @@
     </dependencies>
 
 
+
     <build>
+
+        <outputDirectory>
+            ${basedir}/target/classes
+        </outputDirectory>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <!-- specify UTF-8, ISO-8859-1 or any other file encoding -->
+                    <encoding>UTF-8</encoding>
+
+                </configuration>
+                <executions><execution>
+                    <id>filtering-step-1</id>
+
+                    <phase>process-resources</phase>
+                    <goals>
+                        <goal>copy-resources</goal>
+
+                    </goals>
+                    <configuration>
+                        <delimiters>
+                            <delimiter>${*}</delimiter>
+                            <delimiter>@</delimiter>
+                        </delimiters>
+
+                        <outputDirectory>
+                            ${basedir}/target/classes
+                        </outputDirectory>
+
+                        <resources>
+                            <resource>
+                                <directory>src/main/resources/${context.id}</directory>
+                                <filtering>true</filtering>
+                            </resource>
+                        </resources>
+                        <filters>
+                            <filter>../weegle-common/src/main/resources/${context.id}/config.properties</filter>
+
+                            <!--filter>profiles/${build.profile.id}/config.properties</filter-->
+                        </filters>
+
+                    </configuration>
+
+                </execution>
+                    <execution>
+                        <id>filtering-step-2</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <delimiters>
+                                <delimiter>${*}</delimiter>
+                                <delimiter>@</delimiter>
+                            </delimiters>
+                            <outputDirectory>
+                                ${basedir}/target/classes
+                            </outputDirectory>
+                            <filters>
+                                <filter>./target/classes/application.properties</filter>
+
+                                <!--filter>profiles/${build.profile.id}/config.properties</filter-->
+                            </filters>
+                            <resources>
+                                <resource>
+                                    <directory>../weegle-common/src/main/resources/kubernetes</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+
+                            </resources>
+                            <overwrite>true</overwrite>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>dockerfile-maven-plugin</artifactId>

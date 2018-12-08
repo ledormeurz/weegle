@@ -1,19 +1,19 @@
 apiVersion: apps/v1beta1 # for versions before 1.8.0 use apps/v1beta1
 kind: Deployment
 metadata:
-  name: weegle-a
+  name: @project.name@
 spec:
   selector:
     matchLabels:
-      app: weegle-a
+      app: @project.name@
   replicas: 3 # tells deployment to run 3 pods matching the template
   template: # create pods using pod definition in this template
     metadata:
       labels:
-        app: weegle-a
+        app: @project.name@
     spec:
       containers:
-        - name: weegle-a
-          image: cedcori/weegle-a
+        - name: ${project.name}
+          image: cedcori/${project.name}
           ports:
-            - containerPort: 80
+            - containerPort: 8080
