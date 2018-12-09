@@ -12,5 +12,5 @@ spec:
       paths:
       - backend:
           serviceName: ${project.name}
-          servicePort: 8080
+          servicePort: ${server.port}
         path: /${project.name}

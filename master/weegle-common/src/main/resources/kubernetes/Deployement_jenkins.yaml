@@ -16,4 +16,4 @@ spec:
         - name: ${project.name}
           image: cedcori/${project.name}
           ports:
-            - containerPort: 8080
+            - containerPort: ${server.port}

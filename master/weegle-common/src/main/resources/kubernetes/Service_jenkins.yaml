@@ -4,7 +4,7 @@ metadata:
   name: ${project.name}-svc
 spec:
   ports:
-    - port: 8080
+    - port: ${server.port}
       nodePort: ${server.port}
   selector:
     app: ${project.name}
