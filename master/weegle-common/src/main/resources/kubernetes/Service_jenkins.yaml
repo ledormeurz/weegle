@@ -5,9 +5,7 @@ metadata:
 spec:
   ports:
     - port: 8080
-      targetPort: 8080
       nodePort: ${server.port}
-
   selector:
     app: ${project.name}
   type: NodePort
