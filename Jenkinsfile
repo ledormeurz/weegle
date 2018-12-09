@@ -1,28 +1,20 @@
 pipeline {
   agent any
   stages {
-    stage('test1') {
-      parallel {
-        stage('test1') {
-          steps {
-            sleep 1
-          }
-        }
-        stage('para1') {
-          steps {
-            sleep 5
-          }
-        }
-        stage('paralelle2') {
-          steps {
-            sleep 10
-          }
-        }
+    stage('pull git') {
+      steps {
+        git(url: 'https://github.com/ledormeurz/weegle.git', branch: 'master')
       }
     }
-    stage('test2') {
+    stage('build weegle a') {
       steps {
-        sleep 3
+        bat 'dir'
+        bat 'cd ./master/weegle-a'
+        dir(path: './master/weegle-a') {
+          bat 'dir'
+          bat 'mvn clean package'
+        }
+
       }
     }
   }
