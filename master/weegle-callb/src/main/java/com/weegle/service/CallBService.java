@@ -20,6 +20,7 @@ public class CallBService {
         String path = env.getProperty("WEEGLE_B_SVC_PORT")+"/gethello";
         String returnFromB = restTemplate.getForObject(path,String.class);
         String ret = "I m service C, its :"+new Date() +" the return from B is : "+returnFromB;
+
         return ret;
     }
 
