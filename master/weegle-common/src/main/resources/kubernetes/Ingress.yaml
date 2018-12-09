@@ -11,6 +11,6 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: ${project.name}
+          serviceName: ${project.name}-svc
           servicePort: ${server.port}
         path: /${project.name}
