@@ -17,7 +17,7 @@ public class CallBService {
     @RequestMapping("/getc")
     public String getHello(){
         RestTemplate restTemplate = new RestTemplate();
-        String path = "http://"+env.getProperty("WEEGLE_B_SERVICE_HOST")+":"+env.getProperty("WEEGLE_B_SERVICE_PORT")+"/gethello";
+        String path = env.getProperty("WEEGLE_B_SVC_PORT")+"/gethello";
         String returnFromB = restTemplate.getForObject(path,String.class);
         String ret = "I m service C, its :"+new Date() +" the return from B is : "+returnFromB;
         return ret;
