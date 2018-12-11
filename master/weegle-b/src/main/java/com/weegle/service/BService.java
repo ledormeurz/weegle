@@ -8,7 +8,7 @@ public class BService {
 
     @RequestMapping("/gethello")
     public String getHello(){
-        return "Bonjour je suis BBB. Et je suis nouveau test encore";
+        return "Bonjour je suis BBBCCCDD. Et je suis nouveau test encore";
     }
 
 
