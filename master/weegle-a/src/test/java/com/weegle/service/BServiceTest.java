@@ -16,7 +16,7 @@ public class BServiceTest {
     public void test(){
 
     }
-    @Test
+   // @Test
     public void getHello() throws InterruptedException {
         ExecutorService executorService = Executors.newCachedThreadPool();
 
