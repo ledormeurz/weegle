@@ -16,11 +16,11 @@ public class BServiceTest {
     public void test(){
 
     }
-   // @Test
+    @Test
     public void getHello() throws InterruptedException {
         ExecutorService executorService = Executors.newCachedThreadPool();
 
-       for(int i = 0 ; i < 30;i++){
+       for(int i = 0 ; i < 10;i++){
            executorService.submit(new Runnable() {
                @Override
                public void run() {
@@ -29,9 +29,15 @@ public class BServiceTest {
                    while(true){
                         double random = 10 * Math.random();
                         System.out.println(random);
-                       restTemplate.getForEntity("http://localhost:32398/a",String.class);
-                       if(random<7){
-                           restTemplate.getForEntity("http://localhost:32398/something",String.class);
+                       restTemplate.getForEntity("http://localhost:30431/weegle-a/gethello",String.class);
+                       if(random<7) {
+                           restTemplate.getForEntity("http://localhost:30431/weegle-b/gethello", String.class);
+                       }
+                       if(random<5) {
+                           restTemplate.getForEntity("http://localhost:30431/weegle-callb/getc", String.class);
+                       }
+                       if(random<3){
+                     //      restTemplate.getForEntity("http://localhost:32398/something",String.class);
                        }
                       // try {
                         //   Thread.sleep(1);
