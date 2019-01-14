@@ -7,7 +7,7 @@ metadata:
   namespace: default
 spec:
   rules:
-  - host: localhost
+  - host: a363ec8be179811e99d570ec2d840dae-1442812623.us-east-1.elb.amazonaws.com
     http:
       paths:
       - backend:
