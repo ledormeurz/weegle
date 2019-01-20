@@ -1,15 +1,13 @@
-apiVersion: apps/v1
+apiVersion: apps/v1beta1 # for versions before 1.8.0 use apps/v1beta1
 kind: Deployment
 metadata:
-  name: @project.name@-deployment
-  labels:
-    app: @project.name@
+  name: @project.name@
 spec:
   selector:
     matchLabels:
       app: @project.name@
-  replicas: 2
-  template:
+  replicas: 2 # tells deployment to run 3 pods matching the template
+  template: # create pods using pod definition in this template
     metadata:
       labels:
         app: @project.name@
